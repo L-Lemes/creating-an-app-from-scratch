@@ -1,5 +1,3 @@
-
-
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { GetStaticPropsContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
@@ -153,21 +151,21 @@ describe('Home', () => {
       wrapper: RouterWrapper,
     });
 
-    const firstPostTitle = screen.getByText('Como utilizar Hooks');
-    const secondPostTitle = screen.getByText('Criando um app CRA do zero');
+    const firstPostTitle = screen.getByText('Criando um app CRA do zero');
+    const secondPostTitle = screen.getByText('Como utilizar Hooks');
 
     fireEvent.click(firstPostTitle);
     fireEvent.click(secondPostTitle);
 
     expect(mockedPush).toHaveBeenNthCalledWith(
       1,
-      '/post/como-utilizar-hooks',
+      '/post/criando-um-app-cra-do-zero',
       expect.anything(),
       expect.anything()
     );
     expect(mockedPush).toHaveBeenNthCalledWith(
       2,
-      '/post/criando-um-app-cra-do-zero',
+      '/post/como-utilizar-hooks',
       expect.anything(),
       expect.anything()
     );
